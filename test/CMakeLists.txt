@@ -2,8 +2,6 @@ SET(PROJECT_TEST ${PROJECT_NAME}-test )
 
 set(${PROJECT_TEST}_SOURCES
     WebCreatorTest.cpp
-#    ../AsciiDecode.h
-#    ../AsciiDecode.cpp
     )
 
 add_executable(${PROJECT_TEST} ${${PROJECT_TEST}_SOURCES})
