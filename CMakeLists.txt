@@ -30,6 +30,8 @@ configure_file(${CMAKE_SOURCE_DIR}/testFile.txt
 
 set(${PROJECT_NAME}_SOURCES
     main.cpp
+    WebCreator.cpp
+    WebCreator.h
     )
 
 add_executable(${CMAKE_PROJECT_NAME} ${${PROJECT_NAME}_SOURCES})
