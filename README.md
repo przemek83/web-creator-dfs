@@ -49,7 +49,7 @@ $ g++ -Wall -std=c++17 -O3 -o web-creator-dfs *.o
 | QtCreator | 4.12.0 | 4.13.0 |
 
 ## Usage
-Application expects on std in lines containing type of operation (B or T) and 2 IP addresses.  
+Application expects on std in lines containing type of operation (B or T) and 2 IP addresses. Each element in line need to be separated by space.  
 Example input:
 ```
 B 1.1.1.1.1 2.2.2.2.2
