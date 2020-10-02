@@ -3,8 +3,8 @@
 void WebCreator::addConnection(const std::string& fromIP,
                                const std::string& toIP)
 {
-    const int ip1Index{getIpIndex(fromIP)};
-    const int ip2Index{getIpIndex(toIP)};
+    const unsigned int ip1Index{getIpIndex(fromIP)};
+    const unsigned int ip2Index{getIpIndex(toIP)};
     connections_[ip1Index].insert(ip2Index);
     connections_[ip2Index].insert(ip1Index);
 }
@@ -20,20 +20,15 @@ bool WebCreator::connectionExist(const std::string& fromIP,
     return checkConnection(ip1Iter->second, ip2Iter->second);
 }
 
-int WebCreator::getIpIndex(const std::string& ip)
+unsigned int WebCreator::getIpIndex(const std::string& ip)
 {
-    auto ipIter{nodeNamesMap_.find(ip)};
-    int ipIndex{0};
-    if (ipIter == nodeNamesMap_.end())
-    {
-        ipIndex = currentNameIndex_;
-        nodeNamesMap_[ip] = ipIndex;
-        currentNameIndex_++;
-    }
-    else
-    {
-        ipIndex = ipIter->second;
-    }
+    const auto ipIter{nodeNamesMap_.find(ip)};
+    if (ipIter != nodeNamesMap_.end())
+        return ipIter->second;
+
+    unsigned int ipIndex{currentNameIndex_};
+    nodeNamesMap_[ip] = ipIndex;
+    currentNameIndex_++;
     return ipIndex;
 }
 

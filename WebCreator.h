@@ -12,7 +12,7 @@ public:
     bool connectionExist(const std::string& fromIP, const std::string& toIP);
 
 private:
-    int getIpIndex(const std::string& ip);
+    unsigned int getIpIndex(const std::string& ip);
 
     bool checkConnection(unsigned int fromIPIndex, unsigned int toIPIndex);
 
