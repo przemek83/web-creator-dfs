@@ -12,11 +12,12 @@ public:
     bool connectionExist(const std::string& fromIP, const std::string& toIP);
 
 private:
-    int getIpIndex(std::string ip);
+    int getIpIndex(const std::string& ip);
 
-    bool checkConnection(int fromIP, int toIP);
+    bool checkConnection(unsigned int fromIPIndex, unsigned int toIPIndex);
 
     unsigned int currentNameIndex_{0};
-    std::unordered_map<std::string, int> nodeNamesMap_{};
-    std::unordered_map<int, std::unordered_set<int>> connections_{};
+    std::unordered_map<std::string, unsigned int> nodeNamesMap_{};
+    std::unordered_map<unsigned int, std::unordered_set<unsigned int>>
+        connections_{};
 };
