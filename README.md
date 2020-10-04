@@ -65,7 +65,7 @@ N
 Examples of usage:  
 1. Pass example file named `testFile.txt` from project repo:
     ```shell
-    $ ./web-creator-dfs.exe  < testFile.txt
+    $ ./web-creator-dfs  < testFile.txt
     Y
     N
     Y
@@ -74,7 +74,7 @@ Examples of usage:
     ```
 2. Use binary directly:
     ```shell
-    $ ./web-creator-dfs.exe
+    $ ./web-creator-dfs
     B 1.1.1.1.1 2.2.2.2.2
     T 1.1.1.1.1 2.2.2.2.2
     Y
@@ -94,7 +94,7 @@ Examples of usage:
 Project contains test subproject based on Goggle Test framework. Compile testing subproject and launch tests via IDE or directly from console.  
 Example run:
 ```
-$ ./web-creator-dfs-test.exe
+$ ./web-creator-dfs-test
 (...)
 [==========] Running 4 tests from 1 test suite.
 [----------] Global test environment set-up.
