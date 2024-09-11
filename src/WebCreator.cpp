@@ -14,7 +14,7 @@ bool WebCreator::connectionExist(const std::string& fromIP,
 {
     auto ip1Iter{nodeNamesMap_.find(fromIP)};
     auto ip2Iter{nodeNamesMap_.find(toIP)};
-    if (ip1Iter == nodeNamesMap_.end() || ip2Iter == nodeNamesMap_.end())
+    if ((ip1Iter == nodeNamesMap_.end()) || (ip2Iter == nodeNamesMap_.end()))
         return false;
 
     return checkConnection(ip1Iter->second, ip2Iter->second);
@@ -22,20 +22,20 @@ bool WebCreator::connectionExist(const std::string& fromIP,
 
 unsigned int WebCreator::getIpIndex(const std::string& ip)
 {
-    const auto ipIter{nodeNamesMap_.find(ip)};
-    if (ipIter != nodeNamesMap_.end())
+    if (const auto ipIter{nodeNamesMap_.find(ip)};
+        ipIter != nodeNamesMap_.cend())
         return ipIter->second;
 
     unsigned int ipIndex{currentNameIndex_};
     nodeNamesMap_[ip] = ipIndex;
-    currentNameIndex_++;
+    ++currentNameIndex_;
     return ipIndex;
 }
 
 bool WebCreator::checkConnection(unsigned int fromIPIndex,
-                                 unsigned int toIpIndex)
+                                 unsigned int toIPIndex)
 {
-    if (fromIPIndex == toIpIndex)
+    if (fromIPIndex == toIPIndex)
         return true;
 
     std::unordered_set<unsigned int> checkedNodes{};
@@ -46,7 +46,7 @@ bool WebCreator::checkConnection(unsigned int fromIPIndex,
         std::unordered_set<unsigned int> newNodesToCheck{};
         for (const auto& node : nodesToCheck)
         {
-            if (node == toIpIndex)
+            if (node == toIPIndex)
                 return true;
             if (!checkedNodes.insert(node).second)
                 continue;

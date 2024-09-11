@@ -18,7 +18,7 @@ int main()
         if (operation == 'T')
         {
             const bool connectioExist{creator.connectionExist(ip1, ip2)};
-            std::cout << (connectioExist ? "Y" : "N") << std::endl;
+            std::cout << (connectioExist ? "Y" : "N") << "\n";
         }
     }
 
