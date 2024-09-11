@@ -53,7 +53,7 @@ bool WebCreator::checkConnection(unsigned int fromIPIndex,
     std::list<unsigned int> nodesToCheck{connections_.at(fromIPIndex)};
 
     auto it{nodesToCheck.begin()};
-    while (it != nodesToCheck.end() && (*it != toIPIndex))
+    while ((it != nodesToCheck.end()) && (*it != toIPIndex))
     {
         processNode(checkedNodes, nodesToCheck, it);
         it = nodesToCheck.erase(it);
