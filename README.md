@@ -1,3 +1,13 @@
+[![Build & test](https://github.com/przemek83/web-creator-dfs/actions/workflows/buld-and-test.yml/badge.svg)](https://github.com/przemek83/web-creator-dfs/actions/workflows/buld-and-test.yml)
+[![CodeQL](https://github.com/przemek83/web-creator-dfs/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/przemek83/web-creator-dfs/actions/workflows/github-code-scanning/codeql)
+[![codecov](https://codecov.io/gh/przemek83/web-creator-dfs/graph/badge.svg?token=IHVEAAXJNU)](https://codecov.io/gh/przemek83/web-creator-dfs)
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=przemek83_web-creator-dfs&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=przemek83_web-creator-dfs)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=przemek83_web-creator-dfs&metric=bugs)](https://sonarcloud.io/summary/new_code?id=przemek83_web-creator-dfs)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=przemek83_web-creator-dfs&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=przemek83_web-creator-dfs)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=przemek83_web-creator-dfs&metric=coverage)](https://sonarcloud.io/summary/new_code?id=przemek83_web-creator-dfs)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=przemek83_web-creator-dfs&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=przemek83_web-creator-dfs)
+
 ## Web creator using DFS
 Tool for creating simple network (graph) containing nodes in form of IP addresses and checking nodes connections using DFS (Depth-First Search) algorithm.
 
