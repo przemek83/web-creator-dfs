@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 
-#include "../WebCreator.h"
+#include <src/WebCreator.h>
 
 TEST(WebCreator, checkConnectionEmptyWeb)
 {
