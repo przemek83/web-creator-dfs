@@ -49,7 +49,7 @@ bool WebCreator::checkConnection(unsigned int fromIPIndex,
     if (fromIPIndex == toIPIndex)
         return true;
 
-    std::unordered_set<unsigned int> checkedNodes{};
+    std::unordered_set<unsigned int> checkedNodes;
     std::list<unsigned int> nodesToCheck{connections_.at(fromIPIndex)};
 
     auto it{nodesToCheck.begin()};
@@ -59,5 +59,5 @@ bool WebCreator::checkConnection(unsigned int fromIPIndex,
         it = nodesToCheck.erase(it);
     }
 
-    return *it == toIPIndex;
+    return it != nodesToCheck.end();
 }
