@@ -48,7 +48,7 @@ bool WebCreator::checkConnection(unsigned int fromIPIndex,
         {
             if (node == toIPIndex)
                 return true;
-            if (!checkedNodes.insert(node).second)
+            if (const auto [_, success]{checkedNodes.insert(node)}; !success)
                 continue;
             for (auto nodeToAdd : connections_.at(node))
                 if (checkedNodes.find(nodeToAdd) == checkedNodes.end())
