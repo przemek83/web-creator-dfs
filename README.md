@@ -115,4 +115,9 @@ $ ./web-creator-dfs-test
 ```
 
 ## License
-Project is distributed under the MIT License. See `LICENSE` for more information.
+The project is distributed under the MIT License. See `LICENSE` for more information.
+
+The project uses the following open-source software:
+| Name | License | Home | Description |
+| --- | --- | --- | --- |
+| GoogleTest | BSD-3-Clause | https://github.com/google/googletest | testing framework |
