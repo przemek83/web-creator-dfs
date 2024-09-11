@@ -8,20 +8,21 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=przemek83_web-creator-dfs&metric=coverage)](https://sonarcloud.io/summary/new_code?id=przemek83_web-creator-dfs)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=przemek83_web-creator-dfs&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=przemek83_web-creator-dfs)
 
-## Web creator using DFS
-Tool for creating simple network (graph) containing nodes in form of IP addresses and checking nodes connections using DFS (Depth-First Search) algorithm.
-
-## Table of content
+# Table of content
+- [About](#about)
 - [Problem description](#problem-description)
 - [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Building](#building)
-- [Built with](#built-with)
+   * [Prerequisites](#prerequisites)
+   * [Building](#building)
+   * [Used tools and libs](#used-tools-and-libs)
 - [Usage](#usage)
 - [Testing](#testing)
 - [License](#license)
 
-## Problem description
+# About
+Tool for creating simple network (graph) containing nodes in form of IP addresses and checking nodes connections using DFS (Depth-First Search) algorithm.
+
+# Problem description
 Write application allowing to create web of connected nodes in form of IP addresses (5 numbers separated by dots). User should be able to create connection between nodes and check if there is a connection between 2 given nodes.
 
 **Input**:  
@@ -33,32 +34,29 @@ Set of lines with 3 entries separated by space:
 **Output**:  
 For B (build) operation display nothing. For T (test) operation display "Y" if there is connection between given nodes, "N" otherwise.
 
-## Getting Started
+# Getting Started
 This section describes briefly how to setup environment and build project.
 
-### Prerequisites
-C++ compiler with C++17 support as a minimum and CMake 3.8+. Additionally Git tool for downloading Google Test library as it is needed by test subproject.
+## Prerequisites
+C++ compiler with C++17 support as a minimum and CMake 3.14+. Additionally, the Git tool for downloading the Google Test library is needed by the test subproject.
 
-### Building
-Recommended:  
-Use Cmake directly or your favorite IDE supporting CMake projects.  
+## Building
+Clone and use CMake directly or via any IDE supporting it. CMake should:
+- configure everything automatically,
+- compile and create binaries.
 
-Alternative:  
-Use bare compiler for building project binary:
-```shell
-$ g++ -Wall -std=c++17 -O3 -c *.cpp
-$ g++ -Wall -std=c++17 -O3 -o web-creator-dfs *.o
-```
+As a result of compilation, binary for simulations and binary for testing should be created.
 
-## Built with
+## Used tools and libs
 | Tool |  Windows 10 | Lubuntu 20.04 |
 | --- | --- | --- |
-| GCC | 7.3.0 | 9.3.0 |
-| Cmake | 3.14 | 3.17 |
-| Git | 2.20 | 2.25 |
-| QtCreator | 4.12.0 | 4.13.0 |
+| OS version | 10 22H2 | 24.04 |
+| GCC | 13.1.0 | 13.2.0 |
+| Cmake | 3.30.2 | 3.28.3 |
+| Git | 2.46.0 | 2.43.0 |
+| GoogleTest | 1.15.2 | 1.15.2 |
 
-## Usage
+# Usage
 Application expects on std in lines containing type of operation (B or T) and 2 IP addresses. Each element in line need to be separated by space.  
 Example input:
 ```
@@ -100,9 +98,8 @@ Examples of usage:
     Y
     N
     ```
-## Testing
-Project contains test subproject based on Goggle Test framework. Compile testing subproject and launch tests via IDE or directly from console.  
-Example run:
+# Testing
+The project contains a test subproject based on Goggle Test framework. Compile testing subproject and launch tests via IDE or directly from the console. Example run:
 ```
 $ ./web-creator-dfs-test
 (...)
@@ -124,7 +121,7 @@ $ ./web-creator-dfs-test
 [  PASSED  ] 4 tests.
 ```
 
-## License
+# License
 The project is distributed under the MIT License. See `LICENSE` for more information.
 
 The project uses the following open-source software:
