@@ -5,8 +5,8 @@ void WebCreator::addConnection(const std::string& fromIP,
 {
     const unsigned int ip1Index{getIpIndex(fromIP)};
     const unsigned int ip2Index{getIpIndex(toIP)};
-    connections_[ip1Index].insert(ip2Index);
-    connections_[ip2Index].insert(ip1Index);
+    connections_[ip1Index].push_back(ip2Index);
+    connections_[ip2Index].push_back(ip1Index);
 }
 
 bool WebCreator::connectionExist(const std::string& fromIP,
@@ -32,6 +32,17 @@ unsigned int WebCreator::getIpIndex(const std::string& ip)
     return ipIndex;
 }
 
+void WebCreator::processNode(std::unordered_set<unsigned int>& checkedNodes,
+                             std::list<unsigned int>& nodesToCheck,
+                             const std::list<unsigned int>::iterator& it)
+{
+    if (const auto [_, success]{checkedNodes.insert(*it)}; !success)
+        return;
+
+    for (auto nodeToAdd : connections_.at(*it))
+        if (checkedNodes.find(nodeToAdd) == checkedNodes.end())
+            nodesToCheck.push_back(nodeToAdd);
+}
 bool WebCreator::checkConnection(unsigned int fromIPIndex,
                                  unsigned int toIPIndex)
 {
@@ -39,22 +50,14 @@ bool WebCreator::checkConnection(unsigned int fromIPIndex,
         return true;
 
     std::unordered_set<unsigned int> checkedNodes{};
-    std::unordered_set<unsigned int> nodesToCheck{connections_.at(fromIPIndex)};
+    std::list<unsigned int> nodesToCheck{connections_.at(fromIPIndex)};
 
-    while (!nodesToCheck.empty())
+    auto it{nodesToCheck.begin()};
+    while (it != nodesToCheck.end() && *it != toIPIndex)
     {
-        std::unordered_set<unsigned int> newNodesToCheck{};
-        for (const auto& node : nodesToCheck)
-        {
-            if (node == toIPIndex)
-                return true;
-            if (const auto [_, success]{checkedNodes.insert(node)}; !success)
-                continue;
-            for (auto nodeToAdd : connections_.at(node))
-                if (checkedNodes.find(nodeToAdd) == checkedNodes.end())
-                    newNodesToCheck.insert(nodeToAdd);
-        }
-        nodesToCheck = std::move(newNodesToCheck);
+        processNode(checkedNodes, nodesToCheck, it);
+        it = nodesToCheck.erase(it);
     }
-    return false;
+
+    return *it == toIPIndex;
 }
