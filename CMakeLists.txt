@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.14)
 
 project(web-creator-dfs
     LANGUAGES CXX 
@@ -10,23 +10,14 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+option(CODE_COVERAGE "Collect coverage" OFF)
 
-# Gtest / Gmock
-configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
+if(CODE_COVERAGE)
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0 --coverage")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0 --coverage")
+endif()
 
-execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
-        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/googletest-download )
-execute_process(COMMAND ${CMAKE_COMMAND} --build .
-        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/googletest-download )
-
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-
-add_subdirectory(${CMAKE_BINARY_DIR}/googletest-src 
-    ${CMAKE_BINARY_DIR}/googletest-build)
-
-
-configure_file(${CMAKE_SOURCE_DIR}/testFile.txt 
-    ${CMAKE_BINARY_DIR}/testFile.txt COPYONLY)
+file(COPY ${CMAKE_SOURCE_DIR}/testFile.txt DESTINATION ${CMAKE_BINARY_DIR})
 
 set(${PROJECT_NAME}_SOURCES
     main.cpp
@@ -37,4 +28,5 @@ set(${PROJECT_NAME}_SOURCES
 add_executable(${CMAKE_PROJECT_NAME} ${${PROJECT_NAME}_SOURCES})
 
 enable_testing()
+include(Tests.cmake)
 add_subdirectory(test)
