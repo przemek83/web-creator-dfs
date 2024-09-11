@@ -32,10 +32,10 @@ Set of lines with 3 entries separated by space:
 3) To IP.
 
 **Output**:  
-For B (build) operation display nothing. For T (test) operation display "Y" if there is connection between given nodes, "N" otherwise.
+For the B (build) operation, display nothing. For the T (test) operation, display "Y" if there is a connection between the given nodes and "N" otherwise.
 
 # Getting Started
-This section describes briefly how to setup environment and build project.
+This section describes briefly how to setup the environment and build the project.
 
 ## Prerequisites
 C++ compiler with C++17 support as a minimum and CMake 3.14+. Additionally, the Git tool for downloading the Google Test library is needed by the test subproject.
