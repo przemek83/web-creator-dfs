@@ -101,7 +101,7 @@ Examples of usage:
 # Testing
 The project contains a test subproject based on Goggle Test framework. Compile testing subproject and launch tests via IDE or directly from the console. Example run:
 ```
-$ ./web-creator-dfs-test
+$ ./web-creator-dfs-tests
 (...)
 [==========] Running 4 tests from 1 test suite.
 [----------] Global test environment set-up.
