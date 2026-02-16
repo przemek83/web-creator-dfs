@@ -20,10 +20,10 @@
 - [License](#license)
 
 # About
-Tool for creating simple network (graph) containing nodes in form of IP addresses and checking nodes connections using DFS (Depth-First Search) algorithm.
+Tool for creating a simple network (graph) containing nodes in the form of IP addresses and checking node connections using the DFS (Depth-First Search) algorithm.
 
 # Problem description
-Write application allowing to create web of connected nodes in form of IP addresses (5 numbers separated by dots). User should be able to create connection between nodes and check if there is a connection between 2 given nodes.
+Write an application allowing you to create a web of connected nodes in the form of IP addresses (5 numbers separated by dots). Users should be able to create connections between nodes and check if there is a connection between 2 given nodes.
 
 **Input**:  
 Set of lines with 3 entries separated by space:
